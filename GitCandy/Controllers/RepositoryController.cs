@@ -376,6 +376,8 @@ namespace GitCandy.Controllers
             var git = url.Scheme + "://" + url.Host;
             if (!url.IsDefaultPort)
                 git += ":" + url.Port;
+            if (Request.ApplicationPath != "/")
+                git += Request.ApplicationPath;
             git += "/git/" + name + ".git";
             return git;
         }
